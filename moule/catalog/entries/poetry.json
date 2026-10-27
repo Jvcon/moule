@@ -3,5 +3,5 @@
   "kind": "cli",
   "mise": { "backend": "core" },
   "defaultVersion": "latest",
-  "notes": "Python 项目依赖管理（你主力用）。"
+  "notes": "Python 项目依赖管理（可选：存量 poetry 项目或需插件生态时用；新项目默认 uv）。"
 }
