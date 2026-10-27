@@ -1,0 +1,8 @@
+{
+  "id": "bun",
+  "kind": "runtime",
+  "mise": { "backend": "core" },
+  "defaultVersion": "1",
+  "companions": ["biome"],
+  "notes": "Bun 1.x。运行时 + 包管理 + 测试一体；biome 做 lint/format（单工具）。"
+}

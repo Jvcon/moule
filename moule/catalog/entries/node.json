@@ -1,0 +1,9 @@
+{
+  "id": "node",
+  "kind": "runtime",
+  "mise": { "backend": "core" },
+  "defaultVersion": "22",
+  "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+  "companions": ["pnpm", "eslint", "prettier"],
+  "notes": "Node.js 22 LTS。pnpm 包管理，eslint + prettier 做 lint/format。"
+}

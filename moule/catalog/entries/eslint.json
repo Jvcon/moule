@@ -1,0 +1,8 @@
+{
+  "id": "eslint",
+  "kind": "cli",
+  "mise": { "backend": "npm" },
+  "defaultVersion": "9",
+  "extensions": ["dbaeumer.vscode-eslint"],
+  "notes": "JS/TS linter。"
+}

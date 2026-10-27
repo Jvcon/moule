@@ -1,0 +1,4 @@
+# Moule built-in catalog（main bucket）元数据
+name = "builtin"
+description = "Moule 内置基础目录：语言 + lint + formatter 基础闭环"
+minToolVersion = "0.1.0"

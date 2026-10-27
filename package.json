@@ -1,0 +1,19 @@
+{
+  "name": "moule",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "moule": "./moule/bin/cli.ts"
+  },
+  "scripts": {
+    "catalog": "bun run moule/bin/cli.ts catalog"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.6",
+    "@types/node": "^22.5.0"
+  }
+}

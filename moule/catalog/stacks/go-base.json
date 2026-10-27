@@ -1,0 +1,6 @@
+{
+  "id": "go-base",
+  "name": "Go 基础闭环",
+  "description": "go + gofumpt + golangci-lint",
+  "include": ["go", "gofumpt", "golangci-lint"]
+}

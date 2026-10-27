@@ -1,0 +1,7 @@
+{
+  "id": "biome",
+  "kind": "cli",
+  "mise": { "backend": "npm", "plugin": "@biomejs/biome" },
+  "defaultVersion": "latest",
+  "notes": "一体化 JS/TS lint + format。"
+}

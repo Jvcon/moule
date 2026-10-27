@@ -1,0 +1,7 @@
+{
+  "id": "pnpm",
+  "kind": "cli",
+  "mise": { "backend": "npm" },
+  "defaultVersion": "9",
+  "notes": "快速的 Node 包管理。"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "golangci-lint",
+  "kind": "cli",
+  "mise": { "backend": "go", "plugin": "github.com/golangci/golangci-lint/cmd/golangci-lint" },
+  "defaultVersion": "latest",
+  "notes": "Go 聚合 linter。"
+}

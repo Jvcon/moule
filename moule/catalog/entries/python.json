@@ -1,0 +1,9 @@
+{
+  "id": "python",
+  "kind": "runtime",
+  "mise": { "backend": "core" },
+  "defaultVersion": "3.12",
+  "extensions": ["ms-python.python", "charliermarsh.ruff"],
+  "companions": ["uv", "ruff"],
+  "notes": "Python 3.12。uv 包管理，ruff 同时做 lint + format。"
+}

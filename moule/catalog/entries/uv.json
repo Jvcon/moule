@@ -1,0 +1,7 @@
+{
+  "id": "uv",
+  "kind": "cli",
+  "mise": { "backend": "core" },
+  "defaultVersion": "latest",
+  "notes": "极速 Python 包/环境管理。"
+}

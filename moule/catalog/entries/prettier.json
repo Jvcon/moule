@@ -1,0 +1,8 @@
+{
+  "id": "prettier",
+  "kind": "cli",
+  "mise": { "backend": "npm" },
+  "defaultVersion": "3",
+  "extensions": ["esbenp.prettier-vscode"],
+  "notes": "多语言 formatter。"
+}

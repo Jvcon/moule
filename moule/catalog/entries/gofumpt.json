@@ -1,0 +1,7 @@
+{
+  "id": "gofumpt",
+  "kind": "cli",
+  "mise": { "backend": "go", "plugin": "mvdan.cc/gofumpt" },
+  "defaultVersion": "latest",
+  "notes": "更严格的 gofmt。"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "ruff",
+  "kind": "cli",
+  "mise": { "backend": "aqua", "plugin": "astral-sh/ruff" },
+  "defaultVersion": "latest",
+  "extensions": ["charliermarsh.ruff"],
+  "notes": "极速 Python linter + formatter。"
+}

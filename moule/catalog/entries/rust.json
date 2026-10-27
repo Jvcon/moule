@@ -1,0 +1,9 @@
+{
+  "id": "rust",
+  "kind": "runtime",
+  "mise": { "backend": "core" },
+  "defaultVersion": "1.82",
+  "extensions": ["rust-lang.rust-analyzer"],
+  "companions": [],
+  "notes": "Rust 1.82。rustfmt + clippy 是 rustup 组件，随 rust 一起装，无需单独 mise 工具。"
+}
