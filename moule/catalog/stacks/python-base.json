@@ -1,6 +1,6 @@
 {
   "id": "python-base",
   "name": "Python 基础闭环",
-  "description": "python + uv + ruff + mypy",
-  "include": ["python", "uv", "ruff", "mypy"]
+  "description": "python + uv + ruff + mypy + pytest",
+  "include": ["python", "uv", "ruff", "mypy", "pytest"]
 }

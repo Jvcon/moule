@@ -1,7 +1,7 @@
 {
   "id": "oxlint",
-  "kind": "cli",
-  "mise": { "backend": "npm", "plugin": "oxlint" },
+  "kind": "dep",
+  "dep": { "manager": "pnpm" },
   "defaultVersion": "latest",
-  "notes": "Rust 写的极速 JS/TS linter（可选，替代 biome 的 lint 部分）。"
+  "notes": "Rust 写的极速 JS/TS linter（项目依赖，pnpm 管；可选）。"
 }

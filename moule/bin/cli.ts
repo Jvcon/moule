@@ -56,7 +56,8 @@ function cmdList(cwd: string) {
   const cat = loadCatalog(buildLayers(cwd));
   console.log("== entries ==");
   for (const [id, e] of [...cat.entries].sort((a, b) => a[0].localeCompare(b[0]))) {
-    const parts = [`${id.padEnd(16)} ${e.kind.padEnd(8)} ${e.defaultVersion.padEnd(8)}`];
+    const kindLabel = e.kind === "dep" && e.dep ? `dep/${e.dep.manager}` : e.kind;
+    const parts = [`${id.padEnd(16)} ${kindLabel.padEnd(12)} ${e.defaultVersion.padEnd(8)}`];
     if (e.companions?.length) parts.push(`companions=[${e.companions.join(", ")}]`);
     console.log("  " + parts.join(" "));
   }

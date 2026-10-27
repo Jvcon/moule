@@ -1,8 +1,8 @@
 {
   "id": "eslint",
-  "kind": "cli",
-  "mise": { "backend": "npm" },
-  "defaultVersion": "9",
+  "kind": "dep",
+  "dep": { "manager": "pnpm" },
+  "defaultVersion": "latest",
   "extensions": ["dbaeumer.vscode-eslint"],
-  "notes": "JS/TS linter。"
+  "notes": "JS/TS linter（项目依赖，pnpm 管；可选替代 biome 的 lint，需插件生态时用）。"
 }

@@ -1,7 +1,8 @@
 {
   "id": "biome",
-  "kind": "cli",
-  "mise": { "backend": "npm", "plugin": "@biomejs/biome" },
+  "kind": "dep",
+  "dep": { "manager": "pnpm", "package": "@biomejs/biome" },
   "defaultVersion": "latest",
-  "notes": "一体化 JS/TS lint + format。"
+  "extensions": ["biomejs.biome"],
+  "notes": "一体化 JS/TS lint + format（项目依赖，pnpm 管）。"
 }

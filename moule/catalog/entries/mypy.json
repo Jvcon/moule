@@ -1,7 +1,7 @@
 {
   "id": "mypy",
-  "kind": "cli",
-  "mise": { "backend": "pipx", "plugin": "mypy" },
+  "kind": "dep",
+  "dep": { "manager": "uv" },
   "defaultVersion": "latest",
-  "notes": "Python 静态类型检查。"
+  "notes": "Python 静态类型检查（项目依赖，uv 管）。"
 }

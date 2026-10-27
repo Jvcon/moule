@@ -1,8 +1,8 @@
 {
   "id": "prettier",
-  "kind": "cli",
-  "mise": { "backend": "npm" },
-  "defaultVersion": "3",
+  "kind": "dep",
+  "dep": { "manager": "pnpm" },
+  "defaultVersion": "latest",
   "extensions": ["esbenp.prettier-vscode"],
-  "notes": "多语言 formatter。"
+  "notes": "多语言 formatter（项目依赖，pnpm 管；可选替代 biome 的 format）。"
 }

@@ -1,8 +1,8 @@
 {
   "id": "ruff",
-  "kind": "cli",
-  "mise": { "backend": "aqua", "plugin": "astral-sh/ruff" },
+  "kind": "dep",
+  "dep": { "manager": "uv" },
   "defaultVersion": "latest",
   "extensions": ["charliermarsh.ruff"],
-  "notes": "极速 Python linter + formatter。"
+  "notes": "极速 Python linter + formatter（项目依赖，uv 管）。"
 }

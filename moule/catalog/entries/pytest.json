@@ -1,0 +1,7 @@
+{
+  "id": "pytest",
+  "kind": "dep",
+  "dep": { "manager": "uv" },
+  "defaultVersion": "latest",
+  "notes": "Python 测试框架（项目依赖，uv 管；测试代码 import 它，必须进 venv）。"
+}

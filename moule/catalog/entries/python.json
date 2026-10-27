@@ -4,6 +4,6 @@
   "mise": { "backend": "core" },
   "defaultVersion": "3.12",
   "extensions": ["ms-python.python", "charliermarsh.ruff"],
-  "companions": ["uv", "ruff", "mypy"],
-  "notes": "Python 3.12。uv 依赖/环境管理，ruff lint+format，mypy 类型检查（Astral 全家桶）。"
+  "companions": ["uv", "ruff", "mypy", "pytest"],
+  "notes": "Python 3.12。uv（层3 依赖/环境）+ ruff/mypy/pytest（层4 项目依赖，Astral 全家桶 + 类型 + 测试）。"
 }

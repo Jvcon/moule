@@ -5,5 +5,5 @@
   "defaultVersion": "24",
   "extensions": ["biomejs.biome"],
   "companions": ["pnpm", "biome"],
-  "notes": "Node.js 24 LTS。pnpm 包管理，biome 单工具做 lint+format（≈ Python 的 ruff）。"
+  "notes": "Node.js 24 LTS。pnpm（层3 包管理）+ biome（层4 项目依赖，lint+format）。"
 }
