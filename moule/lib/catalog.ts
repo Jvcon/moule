@@ -61,11 +61,8 @@ function loadLayer(layer: Layer): LoadedLayer {
   return res;
 }
 
-function union(a: string[] | undefined, b: string[] | undefined): string[] | undefined {
-  const aa = a ?? [];
-  const bb = b ?? [];
-  if (!aa.length && !bb.length) return undefined;
-  return [...new Set([...aa, ...bb])];
+function union(a: string[] | undefined, b: string[] | undefined): string[] {
+  return [...new Set([...(a ?? []), ...(b ?? [])])];
 }
 
 function mergeEntry(base: ToolEntry | undefined, overlay: ToolEntry): ToolEntry {

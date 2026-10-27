@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: check (typecheck + catalog)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - run: bun install --frozen-lockfile
+      - name: typecheck
+        run: bun run check
+      - name: catalog validation
+        run: |
+          set -euo pipefail
+          out=$(bun run moule/bin/cli.ts catalog status)
+          echo "$out"
+          if echo "$out" | grep -q '校验错误'; then
+            echo "::error::catalog 存在校验错误"
+            exit 1
+          fi
+
+  generate:
+    name: generate (${{ matrix.selection }})
+    runs-on: ubuntu-latest
+    needs: check
+    strategy:
+      fail-fast: false
+      matrix:
+        selection: [node, python-base, go-base]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - run: bun install --frozen-lockfile
+      - name: plan/apply 幂等
+        run: |
+          set -euo pipefail
+          d=$(mktemp -d)
+          cd "$d"
+          bun "$GITHUB_WORKSPACE/moule/bin/cli.ts" apply ${{ matrix.selection }}
+          test -f .mise.toml
+          test -f .devcontainer/devcontainer.json
+          out=$(bun "$GITHUB_WORKSPACE/moule/bin/cli.ts" apply ${{ matrix.selection }})
+          echo "$out"
+          echo "$out" | grep -q '无变化'
+      - name: verify（mise 解析）
+        run: bun "$GITHUB_WORKSPACE/moule/bin/cli.ts" verify ${{ matrix.selection }}
+      - name: verify --install（真实安装，仅 node）
+        if: matrix.selection == 'node'
+        run: bun "$GITHUB_WORKSPACE/moule/bin/cli.ts" verify --install node
+
+  devcontainer:
+    name: devcontainer build
+    runs-on: ubuntu-latest
+    needs: check
+    # 重量级、网络依赖；信息性，不阻塞主流程
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - run: bun install --frozen-lockfile
+      - run: npm i -g @devcontainers/cli
+      - name: build generated devcontainer
+        run: |
+          set -euo pipefail
+          d=$(mktemp -d)
+          cd "$d"
+          bun "$GITHUB_WORKSPACE/moule/bin/cli.ts" apply node
+          devcontainer build --workspace-folder . --image-name moule-ci:test
