@@ -1,0 +1,1 @@
+{ "id": "react-router", "kind": "framework", "category": "routing", "install": "{{pm}} add react-router-dom", "requires": ["react"], "excludes": ["tanstack-router"], "notes": "React Router。" }

@@ -1,0 +1,1 @@
+{ "id": "svelte", "kind": "framework", "category": "ui", "install": "{{pm}} add svelte", "excludes": ["react", "vue", "solid"], "notes": "Svelte。" }

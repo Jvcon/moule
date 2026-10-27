@@ -1,0 +1,1 @@
+{ "id": "astro", "kind": "framework", "category": "bundler", "scaffold": "{{pkgx}} create-astro@latest . --template minimal --typescript strict --no-install --no-git", "notes": "Astro（静态站点底座）。" }

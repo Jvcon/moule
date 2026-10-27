@@ -1,6 +1,7 @@
 import { cmdStatus, cmdList, cmdShow, cmdDiff, cmdAdd, cmdEdit, parseAddOpts } from "./commands/catalog";
 import { cmdPlan, cmdApply } from "./commands/generate";
 import { cmdVerify } from "./commands/verify";
+import { cmdNew } from "./commands/new";
 
 function die(msg: string): never {
   console.error(msg);
@@ -27,6 +28,7 @@ function printHelp() {
   moule apply <stack|entry...>  解析选型并写入 .mise.toml + .devcontainer/
        --force                  覆盖手写的 .mise.toml
   moule verify [<selection>]    验证环境可安装（默认 mise dry-run；--install 真实安装）
+  moule new <name> [--dry-run]  交互决策树选框架 → 生成项目（真执行）+ recipe
 
 例:
   moule catalog show node
@@ -83,4 +85,9 @@ if (cmd === "catalog") {
   const install = rest.includes("--install");
   const sel = rest.filter((a) => !a.startsWith("--"));
   cmdVerify(sel, cwd, install);
+} else if (cmd === "new") {
+  const dryRun = rest.includes("--dry-run");
+  const name = rest.find((a) => !a.startsWith("--"));
+  if (!name) die("用法: moule new <name> [--dry-run]");
+  await cmdNew(name, { dryRun }, cwd);
 } else printHelp();

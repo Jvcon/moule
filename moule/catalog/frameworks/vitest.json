@@ -1,0 +1,1 @@
+{ "id": "vitest", "kind": "framework", "category": "testing", "install": "{{pm}} add {{dev}} vitest", "notes": "Vitest 测试框架。" }

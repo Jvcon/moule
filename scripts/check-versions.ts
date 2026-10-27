@@ -15,7 +15,13 @@ const major = (v: string) => v.split(".")[0];
 
 const dir = builtinCatalogDir();
 const cat = loadCatalog([
-  { name: "builtin", entriesDir: `${dir}/entries`, stacksDir: `${dir}/stacks`, priority: 0 },
+  {
+    name: "builtin",
+    entriesDir: `${dir}/entries`,
+    stacksDir: `${dir}/stacks`,
+    frameworksDir: `${dir}/frameworks`,
+    priority: 0,
+  },
 ]);
 
 let flagged = 0;

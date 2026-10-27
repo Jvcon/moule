@@ -1,0 +1,1 @@
+{ "id": "tailwind", "kind": "framework", "category": "styling", "install": "{{pm}} add {{dev}} tailwindcss @tailwindcss/vite", "extensions": ["bradlc.vscode-tailwindcss"], "notes": "Tailwind CSS v4（+ Vite 插件）。" }

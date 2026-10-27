@@ -4,35 +4,23 @@ import { builtinCatalogDir, globalCatalogDir, projectCatalogDir, bucketCatalogDi
 
 const PRIORITY = { builtin: 0, bucket: 10, global: 20, project: 30 } as const;
 
+function dirs(base: string, priority: number, name: string): Layer {
+  return {
+    name,
+    entriesDir: join(base, "entries"),
+    stacksDir: join(base, "stacks"),
+    frameworksDir: join(base, "frameworks"),
+    priority,
+  };
+}
+
 /** 按优先级组装四层（bucket 为 0 个或多个）。 */
 export function buildLayers(cwd: string): Layer[] {
-  const layers: Layer[] = [
-    {
-      name: "builtin",
-      entriesDir: join(builtinCatalogDir(), "entries"),
-      stacksDir: join(builtinCatalogDir(), "stacks"),
-      priority: PRIORITY.builtin,
-    },
-  ];
+  const layers: Layer[] = [dirs(builtinCatalogDir(), PRIORITY.builtin, "builtin")];
   for (const b of bucketCatalogDirs()) {
-    layers.push({
-      name: `bucket:${b.name}`,
-      entriesDir: join(b.dir, "entries"),
-      stacksDir: join(b.dir, "stacks"),
-      priority: PRIORITY.bucket,
-    });
+    layers.push(dirs(b.dir, PRIORITY.bucket, `bucket:${b.name}`));
   }
-  layers.push({
-    name: "global",
-    entriesDir: join(globalCatalogDir(), "entries"),
-    stacksDir: join(globalCatalogDir(), "stacks"),
-    priority: PRIORITY.global,
-  });
-  layers.push({
-    name: "project",
-    entriesDir: join(projectCatalogDir(cwd), "entries"),
-    stacksDir: join(projectCatalogDir(cwd), "stacks"),
-    priority: PRIORITY.project,
-  });
+  layers.push(dirs(globalCatalogDir(), PRIORITY.global, "global"));
+  layers.push(dirs(projectCatalogDir(cwd), PRIORITY.project, "project"));
   return layers;
 }

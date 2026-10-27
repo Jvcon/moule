@@ -1,0 +1,1 @@
+{ "id": "vue", "kind": "framework", "category": "ui", "install": "{{pm}} add vue", "excludes": ["react", "svelte", "solid"], "notes": "Vue。" }

@@ -1,0 +1,1 @@
+{ "id": "react", "kind": "framework", "category": "ui", "install": "{{pm}} add react react-dom", "extensions": ["dsznajder.es7-react-js-snippets"], "notes": "React UI 库。" }

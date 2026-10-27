@@ -1,0 +1,1 @@
+{ "id": "next", "kind": "framework", "category": "bundler", "scaffold": "{{pkgx}} create-next-app@latest . --ts --app", "notes": "Next.js（SSR 底座）。" }

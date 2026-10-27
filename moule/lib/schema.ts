@@ -56,8 +56,41 @@ export const Stack = z.object({
   exclude: z.array(z.string()).optional(),
 });
 
+/**
+ * 框架条目（层 4 扩展）：项目框架，不是环境工具。
+ * 异构安装模型：
+ *   scaffold  → 生成项目骨架（互斥，一个项目一个底座）
+ *   install   → 添加依赖
+ *   generate  → 代码生成器（如 shadcn，往已有项目写文件）
+ * 命令是 shell 模板，支持 {{pm}}（包管理器）与 {{pkgx}}（npm-exec）占位。
+ */
+export const FRAMEWORK_CATEGORIES = [
+  "bundler",
+  "ui",
+  "styling",
+  "components",
+  "data",
+  "routing",
+  "testing",
+] as const;
+
+export const FrameworkEntry = z.object({
+  id: z.string().min(1),
+  kind: z.literal("framework"),
+  category: z.enum(FRAMEWORK_CATEGORIES),
+  scaffold: z.string().optional(),
+  install: z.string().optional(),
+  generate: z.string().optional(),
+  requires: z.array(z.string()).optional(),
+  excludes: z.array(z.string()).optional(),
+  extensions: z.array(z.string()).optional(),
+  notes: z.string().optional(),
+});
+
 export type ToolEntry = z.infer<typeof ToolEntry>;
 export type Stack = z.infer<typeof Stack>;
+export type FrameworkEntry = z.infer<typeof FrameworkEntry>;
 export type MiseBackend = z.infer<typeof MiseSpec>["backend"];
 export type DepManager = z.infer<typeof DepSpec>["manager"];
 export type ToolKind = z.infer<typeof ToolEntry>["kind"];
+export type FrameworkCategory = z.infer<typeof FrameworkEntry>["category"];

@@ -1,0 +1,1 @@
+{ "id": "shadcn", "kind": "framework", "category": "components", "generate": "{{pkgx}} shadcn@latest init -d", "requires": ["react", "tailwind"], "notes": "shadcn/ui；通过 CLI 生成组件到项目（需 react + tailwind）。" }

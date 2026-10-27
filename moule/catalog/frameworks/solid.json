@@ -1,0 +1,1 @@
+{ "id": "solid", "kind": "framework", "category": "ui", "install": "{{pm}} add solid-js", "excludes": ["react", "vue", "svelte"], "notes": "SolidJS。" }

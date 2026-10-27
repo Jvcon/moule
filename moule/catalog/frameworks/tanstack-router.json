@@ -1,0 +1,1 @@
+{ "id": "tanstack-router", "kind": "framework", "category": "routing", "install": "{{pm}} add @tanstack/react-router", "requires": ["react"], "excludes": ["react-router"], "notes": "TanStack Router。" }

@@ -1,0 +1,1 @@
+{ "id": "swr", "kind": "framework", "category": "data", "install": "{{pm}} add swr", "requires": ["react"], "excludes": ["tanstack-query"], "notes": "SWR 数据获取。" }

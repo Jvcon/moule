@@ -30,12 +30,15 @@ export function cmdStatus(cwd: string) {
   const cat = loadCatalog(buildLayers(cwd));
   console.log("== 分层 ==");
   for (const l of cat.layers) {
-    const empty = !l.entries && !l.stacks ? "  (空)" : "";
-    console.log(`  ${l.name.padEnd(18)} priority=${l.priority}  entries=${l.entries}  stacks=${l.stacks}${empty}`);
+    const empty = !l.entries && !l.stacks && !l.frameworks ? "  (空)" : "";
+    console.log(
+      `  ${l.name.padEnd(18)} priority=${l.priority}  entries=${l.entries}  stacks=${l.stacks}  frameworks=${l.frameworks}${empty}`,
+    );
   }
-  console.log(`\n合计: ${cat.entries.size} entries, ${cat.stacks.size} stacks`);
+  console.log(`\n合计: ${cat.entries.size} entries, ${cat.stacks.size} stacks, ${cat.frameworks.size} frameworks`);
   if (cat.overriddenEntries.size) console.log(`覆盖的 entries: ${[...cat.overriddenEntries].sort().join(", ")}`);
   if (cat.overriddenStacks.size) console.log(`覆盖的 stacks: ${[...cat.overriddenStacks].sort().join(", ")}`);
+  if (cat.overriddenFrameworks.size) console.log(`覆盖的 frameworks: ${[...cat.overriddenFrameworks].sort().join(", ")}`);
   if (cat.errors.length) {
     console.log("\n== 校验错误（warn + skip）==");
     for (const e of cat.errors) console.log(`  ✗ ${e}`);
@@ -54,6 +57,12 @@ export function cmdList(cwd: string) {
   console.log("\n== stacks ==");
   for (const [id, s] of [...cat.stacks].sort((a, b) => a[0].localeCompare(b[0]))) {
     console.log(`  ${id.padEnd(16)} ${s.name}  include=[${s.include.join(", ")}]`);
+  }
+  console.log("\n== frameworks ==");
+  for (const [id, f] of [...cat.frameworks].sort((a, b) => a[0].localeCompare(b[0]))) {
+    const kind = f.scaffold ? "scaffold" : f.generate ? "generate" : "install";
+    const req = f.requires?.length ? `  requires=[${f.requires.join(", ")}]` : "";
+    console.log(`  ${id.padEnd(18)} ${f.category.padEnd(10)} ${kind}${req}`);
   }
 }
 

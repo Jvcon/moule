@@ -1,0 +1,1 @@
+{ "id": "tanstack-query", "kind": "framework", "category": "data", "install": "{{pm}} add @tanstack/react-query", "requires": ["react"], "notes": "TanStack Query（数据获取/缓存）。" }

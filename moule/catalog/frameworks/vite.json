@@ -1,0 +1,1 @@
+{ "id": "vite", "kind": "framework", "category": "bundler", "scaffold": "{{pkgx}} create-vite@6 . --no-interactive --template {{ui}}-ts", "extensions": ["antfu.vite"], "notes": "Vite 构建工具 + 脚手架（SPA 底座，{{ui}}-ts 模板）。钉 create-vite@6：v7+ 在 bunx 下模板 ENOENT。" }
