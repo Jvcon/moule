@@ -4,5 +4,5 @@
   "dep": { "manager": "pnpm", "package": "@biomejs/biome" },
   "defaultVersion": "latest",
   "extensions": ["biomejs.biome"],
-  "notes": "一体化 JS/TS lint + format（项目依赖，pnpm 管）。"
+  "notes": "一体化 JS/TS lint + format（项目依赖；默认 pnpm，实际跟随所选 base 的包管理器）。"
 }

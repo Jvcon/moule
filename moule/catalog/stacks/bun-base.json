@@ -1,0 +1,6 @@
+{
+  "id": "bun-base",
+  "name": "Bun 基础闭环",
+  "description": "bun + biome",
+  "include": ["bun", "biome"]
+}

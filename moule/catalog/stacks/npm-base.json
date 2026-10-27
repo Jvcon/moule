@@ -1,0 +1,7 @@
+{
+  "id": "npm-base",
+  "name": "Node + npm 基础闭环",
+  "description": "node + npm（随 node 提供）+ biome",
+  "include": ["node", "biome"],
+  "exclude": ["pnpm"]
+}

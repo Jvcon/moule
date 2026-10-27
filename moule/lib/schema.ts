@@ -18,8 +18,11 @@ export const MiseSpec = z.object({
   plugin: z.string().optional(),
 });
 
-/** 项目依赖（层 4）：由语言包管理器声明，装进 .venv / node_modules */
-export const DEP_MANAGERS = ["pnpm", "npm", "yarn", "uv", "poetry", "pip"] as const;
+/**
+ * 项目依赖（层 4）：由语言包管理器声明，装进 .venv / node_modules。
+ * JS 管理器（bun / pnpm / npm / yarn）会被本次选型/选择 base 的 pm 覆盖。
+ */
+export const DEP_MANAGERS = ["bun", "pnpm", "npm", "yarn", "uv", "poetry", "pip"] as const;
 
 export const DepSpec = z.object({
   manager: z.enum(DEP_MANAGERS),

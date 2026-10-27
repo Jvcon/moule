@@ -96,6 +96,17 @@ const QUESTIONS: Question[] = [
   },
 ];
 
+/** 包管理器 → 对应的基础 stack（决定 .mise.toml 里的运行时/包管理工具）。 */
+const PM_BASE: Record<string, string> = {
+  pnpm: "node-base",
+  bun: "bun-base",
+  npm: "npm-base",
+};
+
+function baseOf(pm: string): string {
+  return PM_BASE[pm] ?? "node-base";
+}
+
 function bundlerOf(answers: Record<string, string>): string | undefined {
   switch (answers.projectType) {
     case "webapp":
@@ -178,15 +189,16 @@ export async function cmdNew(name: string, opts: { dryRun: boolean }, cwd: strin
   const cat = loadCatalog(buildLayers(cwd));
   const answers = await runWizard(QUESTIONS);
   const frameworks = selectFrameworks(answers);
+  const pm = answers.pm ?? "pnpm";
   const recipe: Recipe = {
     version: 1,
-    base: "node-base",
-    pm: answers.pm ?? "pnpm",
+    base: baseOf(pm),
+    pm,
     answers,
     frameworks,
   };
 
-  const tc = resolve([recipe.base], cat);
+  const tc = resolve([recipe.base], cat, { pm });
   const files = buildSet(tc, name).files;
   const actions = planActions(recipe, cat);
 
