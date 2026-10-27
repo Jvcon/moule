@@ -1,0 +1,8 @@
+# Moule 的唯一事实源 —— 由 generator 生成 + 可手改。
+# 里程碑 1 骨架：先内置 bun（moule CLI 自身的运行时），验证闭环。
+
+[tools]
+bun = "1"
+
+[env]
+NODE_ENV = "development"
