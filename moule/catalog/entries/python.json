@@ -4,6 +4,6 @@
   "mise": { "backend": "core" },
   "defaultVersion": "3.12",
   "extensions": ["ms-python.python", "charliermarsh.ruff"],
-  "companions": ["uv", "ruff"],
-  "notes": "Python 3.12。uv 包管理，ruff 同时做 lint + format。"
+  "companions": ["poetry", "ruff", "mypy"],
+  "notes": "Python 3.12。poetry 依赖管理，ruff lint+format，mypy 类型检查。uv 保留为可选（脚本用）。"
 }

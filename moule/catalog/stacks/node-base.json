@@ -1,6 +1,6 @@
 {
   "id": "node-base",
   "name": "Node 基础闭环",
-  "description": "node + pnpm + eslint + prettier",
-  "include": ["node", "pnpm", "eslint", "prettier"]
+  "description": "node + pnpm + biome",
+  "include": ["node", "pnpm", "biome"]
 }

@@ -2,8 +2,8 @@
   "id": "go",
   "kind": "runtime",
   "mise": { "backend": "core" },
-  "defaultVersion": "1.23",
+  "defaultVersion": "1.27",
   "extensions": ["golang.go"],
   "companions": ["gofumpt", "golangci-lint"],
-  "notes": "Go 1.23。gofumpt 格式化（比 gofmt 更严格），golangci-lint 做 lint。"
+  "notes": "Go 1.27。gofumpt 格式化（比 gofmt 更严格），golangci-lint 做 lint。"
 }

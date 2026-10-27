@@ -1,0 +1,7 @@
+{
+  "id": "oxlint",
+  "kind": "cli",
+  "mise": { "backend": "npm", "plugin": "oxlint" },
+  "defaultVersion": "latest",
+  "notes": "Rust 写的极速 JS/TS linter（可选，替代 biome 的 lint 部分）。"
+}

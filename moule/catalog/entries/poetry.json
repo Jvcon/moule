@@ -1,0 +1,7 @@
+{
+  "id": "poetry",
+  "kind": "cli",
+  "mise": { "backend": "core" },
+  "defaultVersion": "latest",
+  "notes": "Python 项目依赖管理（你主力用）。"
+}

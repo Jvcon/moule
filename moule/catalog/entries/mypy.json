@@ -1,0 +1,7 @@
+{
+  "id": "mypy",
+  "kind": "cli",
+  "mise": { "backend": "pipx", "plugin": "mypy" },
+  "defaultVersion": "latest",
+  "notes": "Python 静态类型检查。"
+}
